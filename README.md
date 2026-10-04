@@ -10,7 +10,7 @@ Autor: **Jandir Reis**
 | Dashboard (Looker Studio) | https://lookerstudio.google.com/reporting/a35ffe65-3c7d-41f6-84e6-516c3cb8dc51 |
 | Base completa tratada (ZIP, 33 MB) | https://github.com/profjandirreis-sys/mini-projeto-bps-dashboard/releases/download/v1.0/BPS_20_26_Jandir.zip |
 | CSV usado no dashboard (Google Drive, 94,9 MB) | https://drive.google.com/file/d/1rkP1Df1jRzzcoD_KJx1ayvr1tvPLEJIt/view?usp=sharing |
-| Vídeo de apresentação (até 5 min) | *(link a inserir)* |
+| Vídeo de apresentação (até 5 min) | [Assistir no Google Drive](https://drive.google.com/file/d/1_X9WlZ8yxCdZJx7GiESpvEpWhf65bPnr/view?usp=sharing) |
 
 ## Objetivo
 
