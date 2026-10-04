@@ -8,6 +8,7 @@ Autor: **Jandir Reis**
 | Item | Link |
 |---|---|
 | Dashboard (Looker Studio) | https://lookerstudio.google.com/reporting/a35ffe65-3c7d-41f6-84e6-516c3cb8dc51 |
+| Base completa tratada (ZIP, 33 MB) | https://github.com/profjandirreis-sys/mini-projeto-bps-dashboard/releases/download/v1.0/BPS_20_26_Jandir.zip |
 | CSV usado no dashboard (Google Drive, 94,9 MB) | https://drive.google.com/file/d/1rkP1Df1jRzzcoD_KJx1ayvr1tvPLEJIt/view?usp=sharing |
 | Vídeo de apresentação (até 5 min) | *(link a inserir)* |
 
@@ -40,11 +41,12 @@ onde há preços fora do padrão que merecem investigação.
 | Arquivo | Conteúdo |
 |---|---|
 | `BPS_20_26_Jandir_limpeza.ipynb` | Notebook do Google Colab com a junção, a checagem e a limpeza dos dados |
-| `BPS_20_26_Jandir.zip` | Base completa tratada, compactada (33 MB) |
 | `README.md` | Esta documentação |
+| Release **v1.0** → `BPS_20_26_Jandir.zip` | Base completa tratada, compactada (33 MB) |
 
-O CSV enxuto do dashboard (94,9 MB) passa do limite de upload do GitHub pelo
-navegador, por isso está no Google Drive (link acima).
+Os arquivos de dados passam do limite de 25 MB do envio pelo navegador do GitHub.
+Por isso, o ZIP da base completa está na aba **Releases** deste repositório e o CSV
+enxuto do dashboard (94,9 MB) está no Google Drive (links acima).
 
 ## Tratamento dos dados (Python / pandas, no Colab)
 
