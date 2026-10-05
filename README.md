@@ -115,3 +115,21 @@ Feito no **Looker Studio**, em 3 páginas, com 4 filtros em todas elas: **UF, an
 ## Ferramentas
 
 Google Planilhas · Google Colab (Python, pandas, NumPy) · Looker Studio · GitHub
+
+## Documentação complementar
+
+| Documento | Conteúdo |
+|---|---|
+| [Perguntas de negócio](docs/01_perguntas_de_negocio.md) | Perguntas que orientaram o dashboard e onde cada uma é respondida |
+| [Mapeamento de discrepâncias](docs/02_mapeamento_discrepancias.md) | Diferenças de estrutura, formato e conteúdo entre os anos, e a solução adotada |
+| [Colunas e KPIs](docs/03_colunas_e_kpis.md) | Descrição das principais colunas, fórmulas dos KPIs e regras de agregação |
+| [Recomendações e reprodução](docs/04_recomendacoes_e_reproducao.md) | Recomendações baseadas nos dados e passo a passo para reproduzir o projeto |
+
+## Organização do trabalho (branches)
+
+Cada parte da documentação foi feita em uma branch própria e integrada à `main` por pull request:
+
+- `docs/perguntas-de-negocio`
+- `docs/mapeamento-discrepancias`
+- `docs/colunas-e-kpis`
+- `docs/recomendacoes-e-reproducao`
