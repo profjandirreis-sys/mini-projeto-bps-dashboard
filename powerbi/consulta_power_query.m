@@ -3,7 +3,7 @@
 // O caminho do arquivo vem do parâmetro "Caminho do CSV" (Página Inicial > Transformar dados > Editar parâmetros)
 //
 // Parâmetro "Caminho do CSV" (tipo Texto, obrigatório). Equivalente em M:
-//   "C:\Users\ronia\Downloads\BPS_20_26_SeuNome_dashboard (2).csv" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+//   "C:\Users\ronia\Downloads\BPS_20_26_Jandir_dashboard.csv" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
 let
     Fonte = Csv.Document(File.Contents(#"Caminho do CSV"), [Delimiter=",", Columns=19, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
     Cabecalhos = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
