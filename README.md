@@ -133,8 +133,8 @@ O mesmo painel foi refeito no **Power BI Desktop** (pasta [`powerbi/`](powerbi/)
 
 **Quer clicar em "Atualizar" (recarregar os dados do CSV)?** O Power BI vai procurar o CSV no caminho salvo no parâmetro **"Caminho do CSV"**, que hoje aponta para a pasta Downloads do autor. No seu computador esse caminho não existe, por isso é preciso trocá-lo antes:
 
-1. **Baixe o CSV do dashboard** (94,9 MB) pelo link do Google Drive na tabela [Links](#links), no início desta página: "CSV usado no dashboard". Salve o arquivo numa pasta fácil de achar, por exemplo `C:\Dados\`.
-2. **Copie o caminho completo do arquivo.** No Explorador de Arquivos do Windows, clique no CSV com o **botão direito** e escolha **"Copiar como caminho"**. O caminho fica parecido com `"C:\Dados\BPS_20_26_SeuNome_dashboard.csv"`.
+1. **Baixe o CSV do dashboard** (94,9 MB) pelo link do Google Drive na tabela [Links](#links), no início desta página: "CSV usado no dashboard". O arquivo baixado se chama `BPS_20_26_Jandir_dashboard.csv` (é o mesmo CSV usado no .pbix; o nome do arquivo não importa, desde que o caminho no parâmetro aponte para ele). Salve numa pasta fácil de achar, por exemplo `C:\Dados\`.
+2. **Copie o caminho completo do arquivo.** No Explorador de Arquivos do Windows, clique no CSV com o **botão direito** e escolha **"Copiar como caminho"**. O caminho fica parecido com `"C:\Dados\BPS_20_26_Jandir_dashboard.csv"`.
 3. **Abra o .pbix** no Power BI Desktop.
 4. Na guia **Página Inicial**, clique na **setinha de "Transformar dados"** e escolha **"Editar parâmetros"**.
 5. No campo **"Caminho do CSV"**, apague o caminho antigo e **cole o seu** (Ctrl+V). **Tire as aspas** do começo e do fim, se aparecerem. Clique em **OK**.
