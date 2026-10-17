@@ -104,7 +104,7 @@ O mesmo painel foi refeito no **Power BI Desktop** (pasta [`powerbi/`](powerbi/)
 | [`powerbi/BPS_Dashboard_PowerBI_Jandir.pbix`](powerbi/BPS_Dashboard_PowerBI_Jandir.pbix) | Relatório do Power BI Desktop |
 | [`powerbi/BPS_Dashboard_PowerBI_Jandir.pdf`](powerbi/BPS_Dashboard_PowerBI_Jandir.pdf) | Exportação em PDF das 3 páginas |
 | [`powerbi/prints/`](powerbi/prints/) | Imagens de cada página |
-| [`powerbi/consulta_power_query.m`](powerbi/consulta_power_query.m) | Consulta Power Query (M) que lê o CSV |
+| [`powerbi/consulta_power_query.m`](powerbi/consulta_power_query.m) | Consulta Power Query (M) que lê o CSV a partir do parâmetro "Caminho do CSV" |
 | [`powerbi/medidas.dax`](powerbi/medidas.dax) | Medidas DAX dos KPIs e consulta de conferência |
 
 **Importação:** o CSV usa ponto como separador decimal. Como o Power BI estava em português, a conversão de tipos foi feita com a cultura `en-US` (senão 0.15 viraria 15). A coluna `dt_compra` (AAAAMMDD) foi convertida em data no Power Query.
@@ -126,6 +126,28 @@ O mesmo painel foi refeito no **Power BI Desktop** (pasta [`powerbi/`](powerbi/)
 1. **Visão geral:** cartão com os 6 KPIs, registros por ano e tabela de preço suspeito (902 registros que somam R$ 65,6 bi, 56,8% do valor).
 2. **Onde e como se compra:** valor por ano, valor por UF, itens com maior valor e registros por modalidade.
 3. **Fornecedores e oportunidades:** fornecedores e fabricantes com maior valor e tabela "Oportunidade de investigação", ordenada pelo maior preço unitário, com a marcação de preço suspeito.
+
+### Como abrir o .pbix e atualizar os dados no seu computador
+
+**Só quer ver o dashboard?** Baixe o arquivo [`BPS_Dashboard_PowerBI_Jandir.pbix`](powerbi/BPS_Dashboard_PowerBI_Jandir.pbix) e abra no **Power BI Desktop** (gratuito, na Microsoft Store ou em powerbi.microsoft.com). Os dados já vêm guardados dentro do arquivo. Não precisa baixar o CSV nem fazer login, e nenhum erro aparece, desde que você **não clique em "Atualizar"**.
+
+**Quer clicar em "Atualizar" (recarregar os dados do CSV)?** O Power BI vai procurar o CSV no caminho salvo no parâmetro **"Caminho do CSV"**, que hoje aponta para a pasta Downloads do autor. No seu computador esse caminho não existe, por isso é preciso trocá-lo antes:
+
+1. **Baixe o CSV do dashboard** (94,9 MB) pelo link do Google Drive na tabela [Links](#links), no início desta página: "CSV usado no dashboard". Salve o arquivo numa pasta fácil de achar, por exemplo `C:\Dados\`.
+2. **Copie o caminho completo do arquivo.** No Explorador de Arquivos do Windows, clique no CSV com o **botão direito** e escolha **"Copiar como caminho"**. O caminho fica parecido com `"C:\Dados\BPS_20_26_SeuNome_dashboard.csv"`.
+3. **Abra o .pbix** no Power BI Desktop.
+4. Na guia **Página Inicial**, clique na **setinha de "Transformar dados"** e escolha **"Editar parâmetros"**.
+5. No campo **"Caminho do CSV"**, apague o caminho antigo e **cole o seu** (Ctrl+V). **Tire as aspas** do começo e do fim, se aparecerem. Clique em **OK**.
+6. Se aparecer a faixa amarela **"Existem alterações pendentes em suas consultas"**, clique em **"Aplicar alterações"**. Se não aparecer, clique em **"Atualizar"** na guia Página Inicial.
+7. Aguarde o carregamento (cerca de 3 minutos, são 368.893 linhas). Pronto: o dashboard passa a ler o CSV do seu computador.
+
+**Se der erro:**
+
+| Mensagem | O que fazer |
+|---|---|
+| "Não foi possível encontrar o arquivo" / "DataSource.NotFound" | O caminho está errado. Repita os passos 2 a 5 e confira se o nome do arquivo e a extensão `.csv` estão iguais aos do arquivo salvo, e se não ficaram aspas. |
+| Valores muito altos (preço 15 em vez de 0,15) | O CSV usado não é o do dashboard. Use exatamente o arquivo do link "CSV usado no dashboard" (separador vírgula, decimal com ponto). |
+| Pedido de login ao abrir | Feche a janela de login. O Power BI Desktop funciona sem conta. |
 
 ![Página 1](powerbi/prints/pagina-1.png)
 ![Página 2](powerbi/prints/pagina-2.png)
