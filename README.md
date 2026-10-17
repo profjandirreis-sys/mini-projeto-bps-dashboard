@@ -133,3 +133,12 @@ Cada parte da documentação foi feita em uma branch própria e integrada à `ma
 - `docs/mapeamento-discrepancias`
 - `docs/colunas-e-kpis`
 - `docs/recomendacoes-e-reproducao`
+
+
+## Contato
+
+Jandir Reis
+
+LinkedIn: https://www.linkedin.com/in/profjandirreis
+
+E-mail: profjandirreis@gmail.com
