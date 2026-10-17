@@ -109,7 +109,7 @@ O mesmo painel foi refeito no **Power BI Desktop** (pasta [`powerbi/`](powerbi/)
 
 **Importação:** o CSV usa ponto como separador decimal. Como o Power BI estava em português, a conversão de tipos foi feita com a cultura `en-US` (senão 0.15 viraria 15). A coluna `dt_compra` (AAAAMMDD) foi convertida em data no Power Query.
 
-**Medidas DAX:** `Valor Total`, `Quantidade Total`, `Registros`, `Instituições`, `Fornecedores`, `Preço Médio Ponderado` e `Registros Suspeitos`. Os valores conferem com o notebook e com o Looker Studio:
+**Medidas DAX:** `Valor Total`, `Quantidade Total`, `Registros`, `Instituições`, `Fornecedores`, `Preço Médio Ponderado` e `Registros Suspeitos`. Para o cartão de KPIs mostrar os números exatos (sem o arredondamento automático do Power BI, como "3 Mil"), há também medidas de texto: `Valor total registrado`, `Itens comprados`, `Registros de compra` e `Fornecedores distintos`. As colunas usadas nos visuais foram renomeadas (UF, Ano, Modalidade, Item, Fornecedor, Fabricante, Preço suspeito, Preço unitário). Os valores conferem com o notebook e com o Looker Studio:
 
 | KPI | Power BI (base completa) |
 |---|---:|
