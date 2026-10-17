@@ -7,6 +7,7 @@ Autor: **Jandir Reis**
 
 | Item | Link |
 |---|---|
+| Dashboard (Power BI, arquivo .pbix) | [powerbi/BPS_Dashboard_PowerBI_Jandir.pbix](powerbi/BPS_Dashboard_PowerBI_Jandir.pbix) |
 | Dashboard (Looker Studio) | https://lookerstudio.google.com/reporting/a35ffe65-3c7d-41f6-84e6-516c3cb8dc51 |
 | Base completa tratada (ZIP, 33 MB) | https://github.com/profjandirreis-sys/mini-projeto-bps-dashboard/releases/download/v1.0/BPS_20_26_Jandir.zip |
 | CSV usado no dashboard (Google Drive, 94,9 MB) | https://drive.google.com/file/d/1rkP1Df1jRzzcoD_KJx1ayvr1tvPLEJIt/view?usp=sharing |
@@ -94,6 +95,42 @@ Feito no **Looker Studio**, em 3 páginas, com 4 filtros em todas elas: **UF, an
 - Fabricantes com maior valor registrado
 - Tabela "Oportunidade de investigação": maiores preços unitários, com a marcação de preço suspeito
 
+## Versão em Power BI
+
+O mesmo painel foi refeito no **Power BI Desktop** (pasta [`powerbi/`](powerbi/)), com as mesmas 3 páginas e os mesmos 4 filtros (UF, ano, modalidade e item), sincronizados entre as páginas.
+
+| Arquivo | Conteúdo |
+|---|---|
+| [`powerbi/BPS_Dashboard_PowerBI_Jandir.pbix`](powerbi/BPS_Dashboard_PowerBI_Jandir.pbix) | Relatório do Power BI Desktop |
+| [`powerbi/BPS_Dashboard_PowerBI_Jandir.pdf`](powerbi/BPS_Dashboard_PowerBI_Jandir.pdf) | Exportação em PDF das 3 páginas |
+| [`powerbi/prints/`](powerbi/prints/) | Imagens de cada página |
+| [`powerbi/consulta_power_query.m`](powerbi/consulta_power_query.m) | Consulta Power Query (M) que lê o CSV |
+| [`powerbi/medidas.dax`](powerbi/medidas.dax) | Medidas DAX dos KPIs e consulta de conferência |
+
+**Importação:** o CSV usa ponto como separador decimal. Como o Power BI estava em português, a conversão de tipos foi feita com a cultura `en-US` (senão 0.15 viraria 15). A coluna `dt_compra` (AAAAMMDD) foi convertida em data no Power Query.
+
+**Medidas DAX:** `Valor Total`, `Quantidade Total`, `Registros`, `Instituições`, `Fornecedores`, `Preço Médio Ponderado` e `Registros Suspeitos`. Os valores conferem com o notebook e com o Looker Studio:
+
+| KPI | Power BI (base completa) |
+|---|---:|
+| Valor total registrado | R$ 115.412.346.216 |
+| Quantidade total | 64.901.180.479 |
+| Registros | 368.893 |
+| Instituições | 687 |
+| Fornecedores | 3.466 |
+| Preço médio ponderado | R$ 1,78 |
+| Registros com preço suspeito | 902 |
+
+**Páginas:**
+
+1. **Visão geral:** cartão com os 6 KPIs, registros por ano e tabela de preço suspeito (902 registros que somam R$ 65,6 bi, 56,8% do valor).
+2. **Onde e como se compra:** valor por ano, valor por UF, itens com maior valor e registros por modalidade.
+3. **Fornecedores e oportunidades:** fornecedores e fabricantes com maior valor e tabela "Oportunidade de investigação", ordenada pelo maior preço unitário, com a marcação de preço suspeito.
+
+![Página 1](powerbi/prints/pagina-1.png)
+![Página 2](powerbi/prints/pagina-2.png)
+![Página 3](powerbi/prints/pagina-3.png)
+
 ## Principais achados
 
 - **Pregão** é, de longe, a modalidade mais usada: cerca de 333 mil dos 368,9 mil registros.
@@ -114,7 +151,7 @@ Feito no **Looker Studio**, em 3 páginas, com 4 filtros em todas elas: **UF, an
 
 ## Ferramentas
 
-Google Planilhas · Google Colab (Python, pandas, NumPy) · Looker Studio · GitHub
+Google Planilhas · Google Colab (Python, pandas, NumPy) · Looker Studio · Power BI Desktop (Power Query, DAX) · GitHub
 
 ## Documentação complementar
 

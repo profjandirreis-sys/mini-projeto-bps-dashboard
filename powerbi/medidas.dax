@@ -1,0 +1,16 @@
+-- Medidas DAX do dashboard BPS 2020–2026 (tabela BPS)
+-- Conferência (consulta DAX no Power BI Desktop, base completa):
+-- Valor Total = 115.412.346.216,25 | Quantidade = 64.901.180.479 | Registros = 368.893
+-- Instituições = 687 | Fornecedores = 3.466 | Preço médio ponderado = 1,78 | Suspeitos = 902
+DEFINE
+    MEASURE BPS[Valor Total] = SUM(BPS[vl_preco_total])
+    MEASURE BPS[Quantidade Total] = SUM(BPS[qt_medicamento])
+    MEASURE BPS[Registros] = COUNTROWS(BPS)
+    MEASURE BPS[Instituicoes] = DISTINCTCOUNT(BPS[no_instituicao])
+    MEASURE BPS[Fornecedores] = DISTINCTCOUNT(BPS[no_fornecedor])
+    MEASURE BPS[Preco Medio Ponderado] = DIVIDE([Valor Total], [Quantidade Total])
+    MEASURE BPS[Registros Suspeitos] = CALCULATE(COUNTROWS(BPS), BPS[preco_suspeito] = "Sim")
+EVALUATE
+    ROW("Valor", [Valor Total], "Qtd", [Quantidade Total], "Reg", [Registros],
+        "Inst", [Instituicoes], "Forn", [Fornecedores], "PM", [Preco Medio Ponderado],
+        "Susp", [Registros Suspeitos])
