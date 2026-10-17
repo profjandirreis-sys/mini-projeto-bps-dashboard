@@ -1,16 +1,25 @@
 -- Medidas DAX do dashboard BPS 2020–2026 (tabela BPS)
+-- As colunas sg_uf, ano_compra, modalidade, item_resumo, no_fornecedor, no_fabricante,
+-- preco_suspeito e vl_preco_unitario foram renomeadas para UF, Ano, Modalidade, Item,
+-- Fornecedor, Fabricante, Preço suspeito e Preço unitário.
 -- Conferência (consulta DAX no Power BI Desktop, base completa):
 -- Valor Total = 115.412.346.216,25 | Quantidade = 64.901.180.479 | Registros = 368.893
 -- Instituições = 687 | Fornecedores = 3.466 | Preço médio ponderado = 1,78 | Suspeitos = 902
 DEFINE
+    -- Medidas numéricas (usadas nos gráficos e tabelas)
     MEASURE BPS[Valor Total] = SUM(BPS[vl_preco_total])
     MEASURE BPS[Quantidade Total] = SUM(BPS[qt_medicamento])
     MEASURE BPS[Registros] = COUNTROWS(BPS)
-    MEASURE BPS[Instituicoes] = DISTINCTCOUNT(BPS[no_instituicao])
-    MEASURE BPS[Fornecedores] = DISTINCTCOUNT(BPS[no_fornecedor])
-    MEASURE BPS[Preco Medio Ponderado] = DIVIDE([Valor Total], [Quantidade Total])
-    MEASURE BPS[Registros Suspeitos] = CALCULATE(COUNTROWS(BPS), BPS[preco_suspeito] = "Sim")
+    MEASURE BPS[Instituições] = DISTINCTCOUNT(BPS[no_instituicao])
+    MEASURE BPS[Fornecedores] = DISTINCTCOUNT(BPS[Fornecedor])
+    MEASURE BPS[Preço Médio Ponderado] = DIVIDE([Valor Total], [Quantidade Total])   -- formato "R$" #,##0.00
+    MEASURE BPS[Registros Suspeitos] = CALCULATE(COUNTROWS(BPS), BPS[Preço suspeito] = "Sim")
+    -- Medidas de texto para o cartão de KPIs (evitam o arredondamento automático "3 Mil")
+    MEASURE BPS[Valor total registrado] = "R$ " & FORMAT([Valor Total] / 1000000000, "#,##0.00") & " bi"
+    MEASURE BPS[Itens comprados] = FORMAT([Quantidade Total] / 1000000000, "#,##0.00") & " bi"
+    MEASURE BPS[Registros de compra] = FORMAT([Registros], "#,##0")
+    MEASURE BPS[Fornecedores distintos] = FORMAT([Fornecedores], "#,##0")
 EVALUATE
-    ROW("Valor", [Valor Total], "Qtd", [Quantidade Total], "Reg", [Registros],
-        "Inst", [Instituicoes], "Forn", [Fornecedores], "PM", [Preco Medio Ponderado],
-        "Susp", [Registros Suspeitos])
+    ROW("Valor", [Valor total registrado], "Itens", [Itens comprados], "Registros", [Registros de compra],
+        "Instituições", [Instituições], "Fornecedores", [Fornecedores distintos],
+        "Preço médio", [Preço Médio Ponderado], "Suspeitos", [Registros Suspeitos])
